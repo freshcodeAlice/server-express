@@ -18,6 +18,6 @@ module.exports.validate = async (req, res, next) => {
     req.body = await validateSchema.validate(body)
     next()
   } catch (error) {
-    res.send(error.message) // bad-bad variant, need review
+    res.status(406).send(error.message)
   }
 }
